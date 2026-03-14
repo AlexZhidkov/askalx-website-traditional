@@ -1,301 +1,534 @@
-@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
-  --bg: #f4efe4;
-  --surface: #fffcf6;
-  --surface-alt: #fdf8ec;
-  --text: #1f2520;
-  --muted: #5d645d;
-  --accent: #0e6a5e;
-  --accent-2: #b26b2e;
-  --line: #ded5c5;
-  --shadow: 0 12px 40px rgba(19, 27, 23, 0.1);
+    --bg-color: #050505; /* Deep rich black */
+    --surface: rgba(255, 255, 255, 0.03);
+    --surface-alt: rgba(255, 255, 255, 0.06);
+    --text-color: #ffffff;
+    --muted: rgba(255, 255, 255, 0.5);
+    --accent: #ffffff;
+    --line: rgba(255, 255, 255, 0.1);
+    --shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    --btn-bg: #ffffff;
+    --btn-text: #000000;
+}
+
+@font-face {
+    font-family: 'Lazenby Computer';
+    src: url('askalx-font/LazenbyCompLiquid.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
 }
 
 * {
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
-  margin: 0;
-  font-family: "Space Grotesk", "Segoe UI", sans-serif;
-  line-height: 1.65;
-  color: var(--text);
-  background:
-    radial-gradient(circle at 8% 8%, rgba(178, 107, 46, 0.18), transparent 32%),
-    radial-gradient(circle at 90% 5%, rgba(14, 106, 94, 0.15), transparent 30%),
-    linear-gradient(165deg, #f6f1e7 0%, #efe6d8 65%, #e8dfd2 100%);
-  padding-bottom: 320px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: radial-gradient(circle at center top, #151515 0%, #000000 100%);
+    overflow-x: hidden;
+    line-height: 1.65;
 }
 
-.hero {
-  position: relative;
-  overflow: hidden;
-  text-align: center;
-  padding: 6rem 1rem 3rem;
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 4rem 2rem 2rem;
+    max-width: 900px;
+    width: 100%;
+    text-align: center;
+    gap: 3rem; /* Spacing between top elements */
 }
 
-.hero::before {
-  content: "";
-  position: absolute;
-  inset: 1.25rem;
-  border: 1px solid rgba(93, 100, 93, 0.2);
-  border-radius: 24px;
-  pointer-events: none;
+/* Minimalist Header Styles */
+h1 {
+    font-weight: 300;
+    font-size: 2.5rem;
+    letter-spacing: 0.5px;
+    opacity: 0.95;
+    margin: 0;
 }
 
-.hero h1 {
-  margin: 0;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(2.4rem, 5vw, 4rem);
-  letter-spacing: 0.01em;
-  line-height: 1.06;
-  text-wrap: balance;
+.logo {
+    font-family: 'Lazenby Computer', monospace;
+    font-size: 6.5rem;
+    letter-spacing: 0.3rem;
+    line-height: 1;
+    text-shadow: 0 0 25px rgba(255, 255, 255, 0.15);
+    margin: 0;
 }
 
-.hero p {
-  margin: 0.9rem auto 1.7rem;
-  max-width: 700px;
-  color: var(--muted);
-  font-size: clamp(1rem, 2vw, 1.2rem);
+/* Chat Interface */
+.chat-interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    transition: all 0.5s ease;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.05); /* very subtle frosted look */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+    padding: 0.5rem 1rem 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+    /* Soft premium glow */
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5), inset 0 0 0 1px rgba(255, 255, 255, 0);
+}
+
+.search-container:focus-within {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 30px rgba(255, 255, 255, 0.05), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+#chat-input {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--text-color);
+    font-family: 'Inter', sans-serif;
+    font-size: 1.1rem;
+    outline: none;
+    padding: 0.5rem 0;
+}
+
+#chat-input::placeholder {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+#mic-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+}
+
+#mic-btn:hover {
+    color: #fff;
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+#mic-btn.active {
+    color: #ff4a4a;
+    background-color: rgba(255, 74, 74, 0.1);
+}
+
+#mic-btn.speaking {
+    animation: pulse 1.5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(1.1); opacity: 0.7; }
+}
+
+/* Chat History Layout */
+.chat-history {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    max-width: 800px;
+    min-height: 200px;
+    max-height: 50vh;
+    overflow-y: auto;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.2) transparent;
+}
+
+.chat-history::-webkit-scrollbar {
+    width: 6px;
+}
+.chat-history::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+}
+
+.message {
+    max-width: 80%;
+    margin-bottom: 1rem;
+    display: flex;
+    animation: fadeIn 0.3s ease forwards;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.msg-user {
+    align-self: flex-end;
+}
+
+.msg-user .msg-text {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: #fff;
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px 18px 0px 18px;
+    font-size: 1.05rem;
+    line-height: 1.4;
+}
+
+.msg-ai {
+    align-self: flex-start;
+}
+
+.msg-ai .msg-text {
+    background-color: transparent;
+    color: rgba(255, 255, 255, 0.9);
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px 18px 18px 0px;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Chat Active Layout Adjustments */
+body.chat-active .container {
+    gap: 1.5rem;
+}
+
+body.chat-active h1 {
+    font-size: 1.5rem;
+    opacity: 0.5;
+    margin-bottom: -1rem;
+}
+
+body.chat-active .logo {
+    font-size: 3rem;
+}
+
+/* Optional: hide buttons on chat-active if we don't want them cluttering. Let's not hide entirely but scale down if needed.
+   Actually, requirement didn't specify. I will keep them visible but fade slightly. */
+body.chat-active .hero-actions {
+    opacity: 0.6;
+}
+
+/* Micro-animations */
+.fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.delay-1 {
+    animation-delay: 0.3s;
+}
+
+.delay-2 {
+    animation-delay: 0.6s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Rest of the Traditional Content adapted for Dark Theme */
 .hero-actions {
-  display: flex;
-  gap: 0.8rem;
-  justify-content: center;
-  flex-wrap: wrap;
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1rem;
+    transition: opacity 0.5s ease;
 }
 
 .button {
-  display: inline-block;
-  padding: 0.78rem 1.16rem;
-  border-radius: 999px;
-  border: 1px solid rgba(14, 106, 94, 0.12);
-  background: linear-gradient(180deg, #0e7c6f 0%, #0e6a5e 100%);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  transition:
-    transform 0.22s ease,
-    box-shadow 0.22s ease,
-    filter 0.22s ease;
-  box-shadow: 0 8px 18px rgba(14, 106, 94, 0.22);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05); /* very subtle frosted look */
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
 }
 
 .button:hover {
-  transform: translateY(-2px);
-  filter: saturate(1.08);
-  box-shadow: 0 12px 22px rgba(14, 106, 94, 0.28);
+    transform: translateY(-2px);
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.05);
 }
 
-.button:focus-visible {
-  outline: 3px solid rgba(178, 107, 46, 0.5);
-  outline-offset: 2px;
+.button-icon {
+    transition: color 0.3s ease;
 }
 
-.hero-actions .button:nth-child(2) {
-  background: linear-gradient(180deg, #be783d 0%, #b26b2e 100%);
-  box-shadow: 0 8px 18px rgba(178, 107, 46, 0.22);
+/* Subtle brand colors on hover */
+a[href^="tel:"]:hover .button-icon {
+    color: #34C759; /* iOS Green */
 }
 
-.hero-actions .button:nth-child(3) {
-  background: linear-gradient(180deg, #2f7fcb 0%, #2367ab 100%);
-  box-shadow: 0 8px 18px rgba(35, 103, 171, 0.24);
+a[href^="mailto:"]:hover .button-icon {
+    color: #EA4335; /* Email Red */
+}
+
+a[href^="https://t.me/"]:hover .button-icon {
+    color: #2AABEE; /* Telegram Blue */
 }
 
 main {
-  max-width: 1120px;
-  margin: 0 auto;
-  padding: 0 1rem 2.2rem;
+    max-width: 1120px;
+    margin: 0 auto;
+    padding: 0 1.5rem 4rem;
+    width: 100%;
 }
 
 .section {
-  background: linear-gradient(
-    160deg,
-    rgba(255, 255, 255, 0.84),
-    rgba(255, 252, 246, 0.9)
-  );
-  border: 1px solid var(--line);
-  border-radius: 18px;
-  padding: 1.7rem;
-  margin: 1rem 0;
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(2px);
-  animation: rise 0.65s ease both;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 24px;
+    padding: 2.5rem;
+    margin: 2rem 0;
+    box-shadow: var(--shadow);
+    backdrop-filter: blur(12px);
+    animation: rise 0.65s ease both;
 }
 
 h2 {
-  margin: 0 0 0.7rem;
-  font-family: "Fraunces", Georgia, serif;
-  font-size: clamp(1.5rem, 2.8vw, 2rem);
-  letter-spacing: 0.01em;
+    margin: 0 0 1.5rem;
+    font-size: 2rem;
+    font-weight: 400;
+    letter-spacing: -0.5px;
+    color: var(--text-color);
 }
 
 .section p {
-  color: #3f463f;
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 800px;
 }
 
 .section ul {
-  margin: 0.85rem 0 0;
-  padding-left: 1.05rem;
+    margin: 1.5rem 0 0;
+    padding-left: 1.5rem;
+    color: var(--muted);
 }
 
 .section li {
-  margin: 0.65rem 0;
+    margin: 1rem 0;
 }
 
 .section a {
-  color: var(--accent);
-  font-weight: 600;
-  text-decoration-thickness: 0.08em;
-  text-underline-offset: 0.18em;
+    color: var(--accent);
+    font-weight: 500;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color 0.2s ease, opacity 0.2s ease;
 }
 
 .section a:hover {
-  color: #0a534a;
+    opacity: 0.8;
 }
 
 .testimonial-grid {
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    margin-top: 2rem;
 }
 
 .testimonial-card {
-  background: linear-gradient(
-    180deg,
-    var(--surface) 0%,
-    var(--surface-alt) 100%
-  );
-  border-radius: 14px;
-  border: 1px solid var(--line);
-  overflow: hidden;
-  transition:
-    transform 0.25s ease,
-    box-shadow 0.25s ease;
+    background: var(--surface-alt);
+    border-radius: 16px;
+    border: 1px solid var(--line);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    display: flex;
+    flex-direction: column;
 }
 
 .testimonial-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 16px 28px rgba(19, 27, 23, 0.14);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+    border-color: rgba(255, 255, 255, 0.2);
 }
 
 .testimonial-card img {
-  width: 100%;
-  height: 176px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    filter: brightness(0.9) contrast(1.1); /* Subtle treatment to fit dark theme */
 }
 
 .testimonial-card h3 {
-  margin: 0;
-  padding: 1rem 1rem 0.45rem;
-  font-size: 1.12rem;
-}
-
-.testimonial-card p {
-  margin: 0;
-  padding: 0 1rem 1rem;
-  color: var(--muted);
+    margin: 0;
+    padding: 1.5rem 1.5rem 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 500;
+    color: var(--text-color);
 }
 
 .testimonial-card .business-description {
-  color: #3f463f;
+    margin: 0;
+    padding: 0 1.5rem 1.5rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    border-bottom: 1px solid var(--line);
 }
 
 .testimonial-card .testimonial-quote {
-  margin: 0 1rem 1rem;
-  padding: 0.82rem 0.9rem;
-  border-left: 4px solid var(--accent-2);
-  border-radius: 8px;
-  background: #fffefb;
-  color: #252b26;
-  font-style: italic;
-  line-height: 1.56;
+    margin: 1.5rem;
+    padding: 1rem 1.25rem;
+    border-left: 3px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: 0 8px 8px 0;
+    color: rgba(255, 255, 255, 0.85);
+    font-style: italic;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    flex-grow: 1; /* Pushes the link to bottom */
 }
 
 .testimonial-card .testimonial-link-wrap {
-  padding: 0 1rem 1rem;
+    padding: 0 1.5rem 1.5rem;
+    margin-top: auto;
 }
 
 .testimonial-card .testimonial-link {
-  color: #0a5f55;
-  text-decoration: none;
-  font-weight: 700;
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    opacity: 0.7;
 }
 
 .testimonial-card .testimonial-link:hover {
-  text-decoration: underline;
+    opacity: 1;
+    text-decoration: underline;
 }
 
 #faq li {
-  padding: 0.75rem 0;
-  border-bottom: 1px dashed rgba(93, 100, 93, 0.25);
+    padding: 1.5rem 0;
+    border-bottom: 1px solid var(--line);
+}
+
+#faq li:first-child {
+    padding-top: 0;
 }
 
 #faq li:last-child {
-  border-bottom: none;
+    border-bottom: none;
+    padding-bottom: 0;
 }
 
 #faq strong {
-  display: inline-block;
-  margin-bottom: 0.35rem;
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--text-color);
+    font-size: 1.1rem;
 }
 
 footer {
-  text-align: center;
-  padding: 2rem 1rem;
-  color: var(--muted);
-  font-size: 0.95rem;
+    text-align: center;
+    padding: 3rem 1rem;
+    color: var(--muted);
+    font-size: 0.95rem;
+    width: 100%;
+    margin-top: auto;
 }
 
 @keyframes rise {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
+/* Responsive adjustments */
 @media (max-width: 900px) {
-  .testimonial-grid {
-    grid-template-columns: 1fr 1fr;
-  }
+    .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        gap: 2.5rem;
+        padding-top: 3rem;
+    }
+    h1 {
+        font-size: 1.8rem;
+    }
+    .logo {
+        font-size: 4.5rem;
+    }
+    .hero-actions {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        max-width: 300px;
+        margin: 1rem auto 0;
+    }
+    .button {
+        width: 100%;
+    }
 }
 
 @media (max-width: 680px) {
-  body {
-    padding-bottom: 380px;
-  }
+    .testimonial-grid {
+        grid-template-columns: 1fr;
+    }
+    .section {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+}
 
-  .hero {
-    padding-top: 4.4rem;
-  }
-
-  .hero::before {
-    inset: 0.7rem;
-    border-radius: 18px;
-  }
-
-  .button {
-    width: min(100%, 300px);
-    text-align: center;
-  }
-
-  .section {
-    padding: 1.25rem;
-  }
-
-  .testimonial-grid {
-    grid-template-columns: 1fr;
-  }
+@media (max-width: 480px) {
+    .container {
+        gap: 2rem;
+        padding-top: 2rem;
+    }
+    h1 {
+        font-size: 1.4rem;
+    }
+    .logo {
+        font-size: 3.2rem;
+        letter-spacing: 0.1rem;
+    }
 }
