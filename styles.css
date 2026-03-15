@@ -47,13 +47,11 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    padding: 2rem;
+    padding: 3rem 2rem 2rem;
     max-width: 900px;
     width: 100%;
     text-align: center;
-    gap: 3rem; /* Spacing between top elements */
+    gap: 1.5rem; /* Reduced spacing */
 }
 
 /* Minimalist Header Styles */
