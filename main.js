@@ -1,4 +1,4 @@
-import { Conversation } from "https://esm.sh/@elevenlabs/client";
+import { Conversation, TextConversation } from "https://esm.sh/@elevenlabs/client";
 
 // For a static site on GitHub Pages, we cannot use Node.js environment variables.
 // Since this is client-side code, the Agent ID must be included in the source.
@@ -14,6 +14,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let conversation = null;
     let isVoiceMode = false;
+    let isCurrentSessionVoice = false;
 
     // Helper to add a message to the UI
     function appendMessage(text, role) {
@@ -25,29 +26,60 @@ document.addEventListener("DOMContentLoaded", () => {
         msgText.textContent = text;
 
         msgWrapper.appendChild(msgText);
-        chatHistory.appendChild(msgWrapper);
+        chatHistory.prepend(msgWrapper);
 
-        // Ensure chat history is visible and scroll to bottom
+        // Ensure chat history is visible and scroll to top
         chatHistory.style.display = "flex";
 
         // Minimal transition to chat view by adding class to body
         document.body.classList.add("chat-active");
 
         setTimeout(() => {
-            chatHistory.scrollTop = chatHistory.scrollHeight;
+            chatHistory.scrollTop = 0;
         }, 50);
     }
 
+    function showThinkingIndicator() {
+        removeThinkingIndicator();
+        
+        const msgWrapper = document.createElement("div");
+        msgWrapper.className = `message msg-ai thinking-indicator`;
+        
+        const msgText = document.createElement("div");
+        msgText.className = "msg-text";
+        msgText.innerHTML = `<span class="dot"></span><span class="dot"></span><span class="dot"></span>`;
+        
+        msgWrapper.appendChild(msgText);
+        chatHistory.prepend(msgWrapper);
+        chatHistory.style.display = "flex";
+        document.body.classList.add("chat-active");
+        
+        setTimeout(() => {
+            chatHistory.scrollTop = 0;
+        }, 50);
+    }
+
+    function removeThinkingIndicator() {
+        const indicators = document.querySelectorAll('.thinking-indicator');
+        indicators.forEach(i => i.remove());
+    }
+
     // Initialize or get connection
-    async function getOrInitConversation() {
+    async function getOrInitConversation(useVoice = false) {
+        // If switching between text and voice modes, end the existing session
+        if (conversation && isCurrentSessionVoice !== useVoice) {
+            await conversation.endSession();
+            conversation = null;
+        }
+
         if (!conversation) {
             try {
-                // We keep it muted by default initially, to enforce text-only mode on first setup
-                conversation = await Conversation.startSession({
+                const options = {
                     agentId: AGENT_ID,
                     onMessage: (message) => {
                         // Append the AI's response text to the UI
                         if (message.source === "ai" && message.message) {
+                            removeThinkingIndicator();
                             appendMessage(message.message, "ai");
                         }
                     },
@@ -71,10 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
                             micBtn.classList.remove("speaking");
                         }
                     }
-                });
+                };
 
-                // Set initial volume based on mode
-                await conversation.setVolume({ volume: isVoiceMode ? 1 : 0 });
+                if (useVoice) {
+                    conversation = await Conversation.startSession(options);
+                    await conversation.setVolume({ volume: 1 });
+                } else {
+                    conversation = await TextConversation.startSession(options);
+                }
+                isCurrentSessionVoice = useVoice;
 
             } catch (error) {
                 console.error("Failed to start session:", error);
@@ -98,20 +135,18 @@ document.addEventListener("DOMContentLoaded", () => {
         isVoiceMode = false;
         resetMicUI();
 
-        const conv = await getOrInitConversation();
-        if (conv) {
-            // Mute audio output for text mode
-            await conv.setVolume({ volume: 0 });
-            // By design, ElevenLabs client sends text via microphone context usually, or we can use sendText (if available in current SDK version).
-            // We use simple setVolume(0) to ensure the reply isn't spoken, and we get text callback.
-            // As of latest ESM packages for `@elevenlabs/client`, if sendText is supported natively we can use it, else we rely on natural connection logic.
-            // However, typical usage for purely text input usually requires a specific endpoint, but we can attempt to interact natively if the SDK supports it.
-            // Wait for agent to process
-            // *Note: if standard conversational SDK strictly expects mic input, text-only might require specific API endpoints. Assuming SDK handles it or we gracefully fallback.*
+        // Show thinking indicator while agent processes
+        showThinkingIndicator();
 
-            // For now, let's just make sure it's muted if it speaks. 
-            // *Update*: If the client library doesn't expose sendText natively, we'll need to adapt. Assuming `sendText` or similar exists based on JS integrations.
-            // Let's rely on standard SDK features and handle gracefully if not present.
+        const conv = await getOrInitConversation(false);
+        if (conv) {
+            // Unmute audio output if you want voice response, but user requested text-only response for text input
+            await conv.setVolume({ volume: 0 });
+            
+            // Send text to the ElevenLabs Agent
+            conv.sendUserMessage(text);
+        } else {
+            removeThinkingIndicator();
         }
     });
 
@@ -139,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
             // Add a visual indicator to the user that they are in a voice session, and prompt for mic
             appendMessage("Listening...", "user"); // Optional: placeholder for voice input UX
 
-            const conv = await getOrInitConversation();
+            const conv = await getOrInitConversation(true);
             if (conv) {
                 // Unmute audio output for voice mode
                 await conv.setVolume({ volume: 1 });

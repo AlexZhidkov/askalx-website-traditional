@@ -210,6 +210,30 @@ h1 {
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* Thinking Indicator */
+.thinking-indicator .msg-text {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 1rem 1.2rem;
+}
+
+.thinking-indicator .dot {
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: bounce 1.4s infinite ease-in-out both;
+}
+
+.thinking-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
+.thinking-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+
+@keyframes bounce {
+    0%, 80%, 100% { transform: scale(0); }
+    40% { transform: scale(1); }
+}
+
 /* Chat Active Layout Adjustments */
 body.chat-active .container {
     gap: 1.5rem;
