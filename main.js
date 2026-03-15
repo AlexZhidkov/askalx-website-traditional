@@ -74,11 +74,11 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!conversation) {
             try {
-                const options = {
+                let options = {
                     agentId: AGENT_ID,
                     onMessage: (message) => {
                         // Append the AI's response text to the UI
-                        if (message.source === "ai" && message.message) {
+                        if (message.source === "ai" && message.message && message.message.trim() !== "") {
                             removeThinkingIndicator();
                             appendMessage(message.message, "ai");
                         }
@@ -109,6 +109,11 @@ document.addEventListener("DOMContentLoaded", () => {
                     conversation = await Conversation.startSession(options);
                     await conversation.setVolume({ volume: 1 });
                 } else {
+                    options.overrides = {
+                        agent: {
+                            firstMessage: " "
+                        }
+                    };
                     conversation = await TextConversation.startSession(options);
                 }
                 isCurrentSessionVoice = useVoice;
