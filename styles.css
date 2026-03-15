@@ -1,7 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 :root {
-    --bg-color: #050505; /* Deep rich black */
+    --bg-color: #050505;
+    /* Deep rich black */
     --surface: rgba(255, 255, 255, 0.03);
     --surface-alt: rgba(255, 255, 255, 0.06);
     --text-color: #ffffff;
@@ -51,7 +52,8 @@ body {
     max-width: 900px;
     width: 100%;
     text-align: center;
-    gap: 1.5rem; /* Reduced spacing */
+    gap: 1.5rem;
+    /* Reduced spacing */
 }
 
 /* Minimalist Header Styles */
@@ -86,7 +88,8 @@ h1 {
     align-items: center;
     width: 100%;
     max-width: 600px;
-    background-color: rgba(255, 255, 255, 0.05); /* very subtle frosted look */
+    background-color: rgba(255, 255, 255, 0.05);
+    /* very subtle frosted look */
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 30px;
     padding: 0.5rem 1rem 0.5rem 1.5rem;
@@ -144,8 +147,15 @@ h1 {
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(1.1); opacity: 0.7; }
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
 }
 
 /* Chat History Layout */
@@ -166,6 +176,7 @@ h1 {
 .chat-history::-webkit-scrollbar {
     width: 6px;
 }
+
 .chat-history::-webkit-scrollbar-thumb {
     background-color: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
@@ -179,8 +190,15 @@ h1 {
 }
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 .msg-user {
@@ -226,12 +244,25 @@ h1 {
     animation: bounce 1.4s infinite ease-in-out both;
 }
 
-.thinking-indicator .dot:nth-child(1) { animation-delay: -0.32s; }
-.thinking-indicator .dot:nth-child(2) { animation-delay: -0.16s; }
+.thinking-indicator .dot:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.thinking-indicator .dot:nth-child(2) {
+    animation-delay: -0.16s;
+}
 
 @keyframes bounce {
-    0%, 80%, 100% { transform: scale(0); }
-    40% { transform: scale(1); }
+
+    0%,
+    80%,
+    100% {
+        transform: scale(0);
+    }
+
+    40% {
+        transform: scale(1);
+    }
 }
 
 /* Chat Active Layout Adjustments */
@@ -318,15 +349,23 @@ body.chat-active main {
 
 /* Subtle brand colors on hover */
 a[href^="tel:"]:hover .button-icon {
-    color: #34C759; /* iOS Green */
+    color: #34C759;
+    /* iOS Green */
 }
 
 a[href^="mailto:"]:hover .button-icon {
-    color: #EA4335; /* Email Red */
+    color: #EA4335;
+    /* Email Red */
 }
 
 a[href^="https://t.me/"]:hover .button-icon {
-    color: #2AABEE; /* Telegram Blue */
+    color: #2AABEE;
+    /* Telegram Blue */
+}
+
+a[href^="https://askalx.com.au"]:hover .button-icon {
+    color: #FF9F0A;
+    /* Orange for More/Help */
 }
 
 main {
@@ -446,7 +485,8 @@ h2 {
     font-style: italic;
     font-size: 0.95rem;
     line-height: 1.6;
-    flex-grow: 1; /* Pushes the link to bottom */
+    flex-grow: 1;
+    /* Pushes the link to bottom */
     text-align: left;
 }
 
@@ -506,6 +546,7 @@ footer {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -524,12 +565,15 @@ footer {
         gap: 2.5rem;
         padding-top: 3rem;
     }
+
     h1 {
         font-size: 1.8rem;
     }
+
     .logo {
         font-size: 4.5rem;
     }
+
     .hero-actions {
         flex-direction: column;
         align-items: center;
@@ -537,6 +581,7 @@ footer {
         max-width: 300px;
         margin: 1rem auto 0;
     }
+
     .button {
         width: 100%;
     }
@@ -546,6 +591,7 @@ footer {
     .testimonial-grid {
         grid-template-columns: 1fr;
     }
+
     .section {
         padding: 1.5rem;
         border-radius: 16px;
@@ -557,9 +603,11 @@ footer {
         gap: 2rem;
         padding-top: 2rem;
     }
+
     h1 {
         font-size: 1.4rem;
     }
+
     .logo {
         font-size: 3.2rem;
         letter-spacing: 0.1rem;
