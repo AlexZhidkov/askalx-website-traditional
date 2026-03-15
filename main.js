@@ -131,6 +131,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         chatInput.value = "";
         appendMessage(text, "user");
+        if (window.umami) umami.track("Chat - Text Sent");
 
         isVoiceMode = false;
         resetMicUI();
@@ -173,6 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             // Add a visual indicator to the user that they are in a voice session, and prompt for mic
             appendMessage("Listening...", "user"); // Optional: placeholder for voice input UX
+            if (window.umami) umami.track("Chat - Voice Started");
 
             const conv = await getOrInitConversation(true);
             if (conv) {
