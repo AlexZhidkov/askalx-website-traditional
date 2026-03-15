@@ -74,11 +74,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
         if (!conversation) {
             try {
+                let isFirstTextMessage = !useVoice;
+
                 let options = {
                     agentId: AGENT_ID,
                     onMessage: (message) => {
                         // Append the AI's response text to the UI
                         if (message.source === "ai" && message.message && message.message.trim() !== "") {
+                            // Suppress the agent's default first greeting in text mode
+                            if (isFirstTextMessage) {
+                                isFirstTextMessage = false;
+                                return;
+                            }
                             removeThinkingIndicator();
                             appendMessage(message.message, "ai");
                         }
@@ -90,7 +97,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     },
                     onStatusChange: (status) => {
                         console.log("Status:", status);
-                        if (status === "disconnected") {
+                        const statusStr = typeof status === "string" ? status : status.status;
+                        if (statusStr === "disconnected") {
                             resetMicUI();
                             conversation = null;
                         }
@@ -109,11 +117,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     conversation = await Conversation.startSession(options);
                     await conversation.setVolume({ volume: 1 });
                 } else {
-                    options.overrides = {
-                        agent: {
-                            firstMessage: " "
-                        }
-                    };
                     conversation = await TextConversation.startSession(options);
                 }
                 isCurrentSessionVoice = useVoice;
