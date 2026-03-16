@@ -1,270 +1,462 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ask Alex - AI Specialist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Favicon -->
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <script
+      defer
+      src="https://cloud.umami.is/script.js"
+      data-website-id="ebdcf719-57e4-4f01-873c-4b35031ee27a"
+    ></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ask Alex - AI Specialist</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
-  <!-- Favicon -->
-  <link rel="icon"
-    href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
-  <link rel="stylesheet" href="styles.css" />
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="ebdcf719-57e4-4f01-873c-4b35031ee27a"></script>
-</head>
+  <body>
+    <div class="container">
+      <h1 class="fade-in-up">What can an AI agent do for you?</h1>
+      <div class="logo fade-in-up delay-1">A S K A L X</div>
 
-<body>
-  <div class="container">
-    <h1 class="fade-in-up">What can an AI agent do for you?</h1>
-    <div class="logo fade-in-up delay-1">A S K A L X</div>
+      <div class="chat-interface fade-in-up delay-2">
+        <form id="chat-form" class="search-container">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Chat with AI agent..."
+            autocomplete="off"
+          />
+          <button type="button" id="mic-btn" aria-label="Start Voice Chat">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="mic-icon"
+            >
+              <path
+                d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"
+              ></path>
+              <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+              <line x1="12" y1="19" x2="12" y2="22"></line>
+            </svg>
+          </button>
+        </form>
 
-    <div class="chat-interface fade-in-up delay-2">
-      <form id="chat-form" class="search-container">
-        <input type="text" id="chat-input" placeholder="Chat with AI agent..." autocomplete="off">
-        <button type="button" id="mic-btn" aria-label="Start Voice Chat">
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
-            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="mic-icon">
-            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"></path>
-            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
-            <line x1="12" y1="19" x2="12" y2="22"></line>
+        <div class="chat-history" id="chat-history">
+          <!-- Messages will appear here -->
+        </div>
+      </div>
+
+      <div class="hero-actions fade-in-up delay-2">
+        <a
+          class="button"
+          href="tel:0420965184"
+          data-umami-event="Contact - Call"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="button-icon"
+          >
+            <path
+              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
+            ></path>
           </svg>
-        </button>
-      </form>
-
-      <div class="chat-history" id="chat-history">
-        <!-- Messages will appear here -->
+          Call: 0420965184
+        </a>
+        <a
+          class="button"
+          href="mailto:azhidkov@gmail.com"
+          data-umami-event="Contact - Email"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="button-icon"
+          >
+            <path
+              d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
+            ></path>
+            <polyline points="22,6 12,13 2,6"></polyline>
+          </svg>
+          Email: azhidkov@gmail.com
+        </a>
+        <a
+          class="button"
+          href="https://t.me/AlexanderZhidkov"
+          target="_blank"
+          rel="noopener noreferrer"
+          data-umami-event="Contact - Telegram"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="button-icon"
+          >
+            <line x1="22" y1="2" x2="11" y2="13"></line>
+            <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+          </svg>
+          Telegram: @AlexanderZhidkov
+        </a>
       </div>
     </div>
 
-    <div class="hero-actions fade-in-up delay-2">
-      <a class="button" href="tel:0420965184" data-umami-event="Contact - Call">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-          <path
-            d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
-          </path>
-        </svg>
-        Call: 0420965184
-      </a>
-      <a class="button" href="mailto:azhidkov@gmail.com" data-umami-event="Contact - Email">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-          <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-          <polyline points="22,6 12,13 2,6"></polyline>
-        </svg>
-        Email: azhidkov@gmail.com
-      </a>
-      <a class="button" href="https://t.me/AlexanderZhidkov" target="_blank" rel="noopener noreferrer" data-umami-event="Contact - Telegram">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none"
-          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="button-icon">
-          <line x1="22" y1="2" x2="11" y2="13"></line>
-          <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
-        </svg>
-        Telegram: @AlexanderZhidkov
-      </a>
-    </div>
-  </div>
+    <main>
+      <section class="section" id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial-grid">
+          <article class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/44.jpg"
+              alt="Profile photo of Val Firsov"
+            />
+            <h3>Val Firsov</h3>
+            <p class="business-description">
+              Polished Off WA offers the best quality polished concrete. We
+              offer a wide range of cuts, polish levels and products that gives
+              the perfect look that you've have always dreamed of.
+            </p>
+            <p class="testimonial-quote">
+              “Alex completely transformed how we handle customer enquiries at
+              Polished Off WA. As an owner-operated business, we are usually out
+              on-site using our Klindex machines to deliver the best quality
+              polished concrete. We offer a wide range of cuts, polish levels,
+              and products to give our clients the perfect look they've always
+              dreamed of, but managing the admin side was exhausting. The
+              OpenClaw assistant Alexander set up handles our initial quotes and
+              messages via WhatsApp 24/7, so we never miss a lead while we're
+              working. It has saved us hours of expensive maintenance and
+              allowed us to focus on our craftsmanship.”
+            </p>
+            <p class="testimonial-link-wrap">
+              <a
+                class="testimonial-link"
+                href="https://polishedoffconcrete.com.au/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="Outbound - Polished Off WA"
+                >polishedoffconcrete.com.au</a
+              >
+            </p>
+          </article>
 
-  <main>
-    <section class="section" id="testimonials">
-      <h2>Testimonials</h2>
-      <div class="testimonial-grid">
-        <article class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Profile photo of Val Firsov" />
-          <h3>Val Firsov</h3>
-          <p class="business-description">
-            Polished Off WA offers the best quality polished concrete. We
-            offer a wide range of cuts, polish levels and products that gives
-            the perfect look that you've have always dreamed of.
-          </p>
-          <p class="testimonial-quote">
-            “Alex completely transformed how we handle customer enquiries at
-            Polished Off WA. As an owner-operated business, we are usually out
-            on-site using our Klindex machines to deliver the best quality
-            polished concrete. We offer a wide range of cuts, polish levels,
-            and products to give our clients the perfect look they've always
-            dreamed of, but managing the admin side was exhausting. The
-            OpenClaw assistant Alexander set up handles our initial quotes and
-            messages via WhatsApp 24/7, so we never miss a lead while we're
-            working. It has saved us hours of expensive maintenance and
-            allowed us to focus on our craftsmanship.”
-          </p>
-          <p class="testimonial-link-wrap">
-            <a class="testimonial-link" href="https://polishedoffconcrete.com.au/" target="_blank"
-              rel="noopener noreferrer" data-umami-event="Outbound - Polished Off WA">polishedoffconcrete.com.au</a>
-          </p>
-        </article>
+          <article class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/32.jpg"
+              alt="Profile photo of Michael Messenger"
+            />
+            <h3>Michael Messenger</h3>
+            <p class="business-description">
+              Perth's #1 online laundry for garments, offering professional
+              laundry and dry cleaning services, including top-notch ironing
+              services in Perth.
+            </p>
+            <p class="testimonial-quote">
+              “Running Perth's #1 online laundry for garments means we are
+              constantly moving between professional dry cleaning, ironing, and
+              coordinating free pick-ups and deliveries across the metro area.
+              Before Alexander stepped in, we were overwhelmed by 24/7 customer
+              enquiries and booking requests. He set up a 'hardened' OpenClaw
+              assistant that lives right in our messaging channels to handle
+              these initial conversations and appointment scheduling
+              automatically. Because Alexander is an experienced software
+              developer, we had total peace of mind knowing our business data
+              was isolated and secure. This automation has saved us over 20
+              hours a week in repetitive admin, allowing us to focus on
+              providing the top-notch quality our customers expect.”
+            </p>
+            <p class="testimonial-link-wrap">
+              <a
+                class="testimonial-link"
+                href="https://weloveironing.com.au"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="Outbound - We Love Ironing"
+                >weloveironing.com.au</a
+              >
+            </p>
+          </article>
 
-        <article class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Profile photo of Michael Messenger" />
-          <h3>Michael Messenger</h3>
-          <p class="business-description">
-            Perth's #1 online laundry for garments, offering professional
-            laundry and dry cleaning services, including top-notch ironing
-            services in Perth.
-          </p>
-          <p class="testimonial-quote">
-            “Running Perth's #1 online laundry for garments means we are
-            constantly moving between professional dry cleaning, ironing, and
-            coordinating free pick-ups and deliveries across the metro area.
-            Before Alexander stepped in, we were overwhelmed by 24/7 customer
-            enquiries and booking requests. He set up a 'hardened' OpenClaw
-            assistant that lives right in our messaging channels to handle
-            these initial conversations and appointment scheduling
-            automatically. Because Alexander is an experienced software
-            developer, we had total peace of mind knowing our business data
-            was isolated and secure. This automation has saved us over 20
-            hours a week in repetitive admin, allowing us to focus on
-            providing the top-notch quality our customers expect.”
-          </p>
-          <p class="testimonial-link-wrap">
-            <a class="testimonial-link" href="https://weloveironing.com.au" target="_blank"
-              rel="noopener noreferrer" data-umami-event="Outbound - We Love Ironing">weloveironing.com.au</a>
-          </p>
-        </article>
-
-        <article class="testimonial-card">
-          <img src="https://randomuser.me/api/portraits/men/68.jpg" alt="Profile photo of Ryan Joyce" />
-          <h3>Ryan Joyce</h3>
-          <p class="business-description">
-            Bedford Harbour Engineering is a service and manufacturing company
-            supplying the Western Australian Agricultural market.
-          </p>
-          <p class="testimonial-quote">
-            “I was skeptical about AI, but the OpenClaw assistant integrated
-            into our messaging channels has been incredible. It handles our
-            initial client intake and de-clutters our inboxes 24/7, giving my
-            team back over 20 hours every week to focus on high-value advisory
-            work. Alex’s expertise in making the system reliable and
-            consistent was worth every cent.”
-          </p>
-          <p class="testimonial-link-wrap">
-            <a class="testimonial-link" href="https://www.bedfordharbour.com.au/" target="_blank"
-              rel="noopener noreferrer" data-umami-event="Outbound - Bedford Harbour">bedfordharbour.com.au</a>
-          </p>
-        </article>
-      </div>
-    </section>
-    <section class="section" id="resources">
-      <h2>Links to Resources</h2>
-      <p>
-        Curated collection of resources to help you understand and implement
-        Agentic AI solutions in your business:
-      </p>
-      <ul>
-        <li>
-          <a href="https://docs.openclaw.ai/" target="_blank" rel="noopener noreferrer">OpenClaw: A super-smart,
-            always-on agent who automates the tasks
-            you dread, and moves your biggest ideas forward</a>
-        </li>
-        <li>
-          <a href="https://every.to/guides/claw-school" target="_blank" rel="noopener noreferrer">OpenClaw:
-            Comprehensive Guide for Beginners</a>
-        </li>
-        <li>
-          <a href="https://www.linkedin.com/in/azhidkov/" target="_blank" rel="noopener noreferrer">
-            Connect with me on LinkedIn</a>
-        </li>
-        <li>
-          <a href="https://pinchbench.com/" target="_blank" rel="noopener noreferrer">
-            AI Agent testing benchmarks</a>
-        </li>
-        <li>
-          <a href="https://www.anthropic.com/engineering/building-effective-agents" target="_blank"
-            rel="noopener noreferrer">
-            Engineering at Anthropic: Building effective agents</a>
-        </li>
-        <li>
-          <a href="https://openai.com/index/harness-engineering/" target="_blank" rel="noopener noreferrer">
-            OpenAI: Harness engineering in an agent-first world</a>
-        </li>
-        <li>
-          <a href="https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf"
-            target="_blank" rel="noopener noreferrer">
-            The Complete Guide to Building Skill for Claude</a>
-        </li>
-        <li>
-          <a href="https://youtu.be/qP73cGLQmCU" target="_blank" rel="noopener noreferrer">
-            Moonshots with Peter Diamandis #237 | OpenClaw Explained: Baby
-            AGI, Security Threats, Mac Mini Became Everyone's Supercomputer
-          </a>
-        </li>
-        <li>
-          <a href="https://github.com/f/prompts.chat" target="_blank" rel="noopener noreferrer">
-            The world's largest open-source prompt library for AI</a>
-        </li>
-      </ul>
-    </section>
-    <section class="section" id="use-cases">
-      <h2>Use Cases</h2>
-      <p>
-        How people and businesses are using AI assistants to automate tasks
-        and save time
-      </p>
-      <ul>
-        <li>
-          <a href="https://github.com/hesamsheikh/awesome-openclaw-usecases" target="_blank"
-            rel="noopener noreferrer">Discover ways of how people are using OpenClaw in their daily
-            life.</a>
-        </li>
-        <li>
-          <a href="https://x.com/TheMattBerman/status/2027220216409723296" target="_blank"
-            rel="noopener noreferrer">AI-Driven Meta Ads Kit: Automate Optimization and Scaling with
-            OpenClaw</a>
-        </li>
-        <li>
-          <a href="https://x.com/oliverhenry/status/2022011925903667547" target="_blank" rel="noopener noreferrer">How
-            OpenClaw agent got millions of TikTok views in one week.
-            (Full step-by-step guide)</a>
-        </li>
-        <li>
-          <a href="https://x.com/MatthewBerman/status/2026450191759585776" target="_blank"
-            rel="noopener noreferrer">OpenClaw as a company's operating system.</a>
-        </li>
-        <li>
-          <a href="https://github.com/Shubhamsaboo/awesome-llm-apps" target="_blank" rel="noopener noreferrer">A curated
-            collection of Awesome LLM apps</a>
-        </li>
-      </ul>
-    </section>
-    <section class="section" id="faq">
-      <h2>Frequently Asked Questions</h2>
-      <ul>
-        <li>
-          <strong>What industries can benefit from AI assistants?</strong>
-          <p>
-            AI assistants can benefit a wide range of industries, including
-            retail, hospitality, healthcare, finance, and more. They are
-            particularly effective for businesses that receive a high volume
-            of customer inquiries and need to automate initial interactions.
-          </p>
-        </li>
-        <li>
-          <strong>How do I get started with implementing an AI assistant?</strong>
-          <p>
-            The first step is to identify the specific tasks you want the AI
-            assistant to handle, such as customer inquiries, appointment
-            scheduling, or lead qualification. Then, you can reach out to an
-            AI specialist like myself to discuss your needs and develop a
-            customized solution using platforms like OpenClaw.
-          </p>
-        </li>
-        <li>
-          <strong>How much does OpenClaw usage typically cost?</strong>
-          <p>
-            Usage data from active OpenClaw users suggests that "Light" usage
-            (a few commands a day) results in a token cost of $10-$30 per
-            month, while "Heavy" usage involving constant automation can push
-            this to $70-$150. A heavy coding session with Claude 3.5 Sonnet or
-            Opus can cost as much as $75-$110 in a single day.
-          </p>
-        </li>
-      </ul>
-    </section>
-  </main>
-  <script type="module" src="main.js"></script>
-</body>
-
+          <article class="testimonial-card">
+            <img
+              src="https://randomuser.me/api/portraits/men/68.jpg"
+              alt="Profile photo of Ryan Joyce"
+            />
+            <h3>Ryan Joyce</h3>
+            <p class="business-description">
+              Bedford Harbour Engineering is a service and manufacturing company
+              supplying the Western Australian Agricultural market.
+            </p>
+            <p class="testimonial-quote">
+              “I was skeptical about AI, but the OpenClaw assistant integrated
+              into our messaging channels has been incredible. It handles our
+              initial client intake and de-clutters our inboxes 24/7, giving my
+              team back over 20 hours every week to focus on high-value advisory
+              work. Alex’s expertise in making the system reliable and
+              consistent was worth every cent.”
+            </p>
+            <p class="testimonial-link-wrap">
+              <a
+                class="testimonial-link"
+                href="https://www.bedfordharbour.com.au/"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-umami-event="Outbound - Bedford Harbour"
+                >bedfordharbour.com.au</a
+              >
+            </p>
+          </article>
+        </div>
+      </section>
+      <section class="section" id="why-now">
+        <h2>Why Now?</h2>
+        <p>
+          The window of opportunity to gain a massive competitive edge with AI
+          is wide open, but only for those willing to take "personal
+          responsibility" and act now.
+        </p>
+        <p>
+          OpenClaw was released just months ago, and while 99% of the world is
+          too scared to touch it because of the "security nightmare" headlines,
+          that fear is your biggest advantage. While others are sitting on the
+          sidelines, you can strike and reclaim hours of your week by automating
+          your inbox, bookings, and customer service.
+        </p>
+        <p>
+          The risks are real, but you don't have to face them alone. As an
+          experienced software developer, I specialise in "hardened"
+          setups—isolating your AI in dedicated virtual environments to keep
+          your sensitive business data safe.
+        </p>
+        <p>
+          In two years, everyone will be using AI agents, and this gap will be
+          gone. Don't wait for it to be "easy"—by then, it will be too late to
+          get ahead.
+        </p>
+        <p>Are you too busy to have a chat?</p>
+      </section>
+      <section class="section" id="resources">
+        <h2>Links to Resources</h2>
+        <p>
+          Curated collection of resources to help you understand and implement
+          Agentic AI solutions in your business:
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://docs.openclaw.ai/"
+              target="_blank"
+              rel="noopener noreferrer"
+              >OpenClaw: A super-smart, always-on agent who automates the tasks
+              you dread, and moves your biggest ideas forward</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://every.to/guides/claw-school"
+              target="_blank"
+              rel="noopener noreferrer"
+              >OpenClaw: Comprehensive Guide for Beginners</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/in/azhidkov/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Connect with me on LinkedIn</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://pinchbench.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              AI Agent testing benchmarks</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.anthropic.com/engineering/building-effective-agents"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Engineering at Anthropic: Building effective agents</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://openai.com/index/harness-engineering/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              OpenAI: Harness engineering in an agent-first world</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://resources.anthropic.com/hubfs/The-Complete-Guide-to-Building-Skill-for-Claude.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              The Complete Guide to Building Skill for Claude</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://youtu.be/qP73cGLQmCU"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Moonshots with Peter Diamandis #237 | OpenClaw Explained: Baby
+              AGI, Self-evolving AI "employees" and Security Threats</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/f/prompts.chat"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              The world's largest open-source prompt library for AI</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="use-cases">
+        <h2>Use Cases</h2>
+        <p>
+          How people and businesses are using AI assistants to automate tasks
+          and save time
+        </p>
+        <ul>
+          <li>
+            <a
+              href="https://github.com/hesamsheikh/awesome-openclaw-usecases"
+              target="_blank"
+              rel="noopener noreferrer"
+              >Discover ways of how people are using OpenClaw in their daily
+              life.</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://x.com/TheMattBerman/status/2027220216409723296"
+              target="_blank"
+              rel="noopener noreferrer"
+              >AI-Driven Meta Ads Kit: Automate Optimization and Scaling with
+              OpenClaw</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://x.com/oliverhenry/status/2022011925903667547"
+              target="_blank"
+              rel="noopener noreferrer"
+              >How OpenClaw agent got millions of TikTok views in one week.
+              (Full step-by-step guide)</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://x.com/MatthewBerman/status/2026450191759585776"
+              target="_blank"
+              rel="noopener noreferrer"
+              >OpenClaw as a company's operating system.</a
+            >
+          </li>
+          <li>
+            <a
+              href="https://github.com/Shubhamsaboo/awesome-llm-apps"
+              target="_blank"
+              rel="noopener noreferrer"
+              >A curated collection of Awesome LLM apps</a
+            >
+          </li>
+        </ul>
+      </section>
+      <section class="section" id="faq">
+        <h2>Frequently Asked Questions</h2>
+        <ul>
+          <li>
+            <strong>What can an AI Agent do for my business?</strong>
+            <p>
+              Asking what an AI agent can do for you is like asking what a human
+              employee can do for your business. The answer depends entirely on
+              what you need them to do. These agents are fully customizable and
+              can learn to do practically anything on your computer.
+            </p>
+          </li>
+          <li>
+            <strong
+              >How do I get started with implementing an AI assistant?</strong
+            >
+            <p>
+              You get started by initialising your AI Agent by providing it
+              information about your business, your goals and ambitions. In
+              other words, you need to give it your business context and your
+              intent. Once initialised, you can use a process called reverse
+              prompting to define its role and capabilities. Sample prompt:
+              "Based on what you know about me and my goals, what information I
+              can provide to you in order for you to be able to help me achieve
+              my goals faster and take as much off my plate as possible". When
+              you finish, ask the assistant, "What are five high lever tasks you
+              can do right now to get us closer to our goals?" to identify
+              initial workflows.
+            </p>
+          </li>
+          <li>
+            <strong>How much does OpenClaw usage typically cost?</strong>
+            <p>
+              Usage data from active OpenClaw users suggests that "Light" usage
+              (a few commands a day) results in a token cost of $10-$30 per
+              month, while "Heavy" usage involving constant automation can push
+              this to $70-$150. A heavy coding session with Claude 3.5 Sonnet or
+              Opus can cost as much as $75-$110 in a single day.
+            </p>
+          </li>
+        </ul>
+      </section>
+    </main>
+    <script type="module" src="main.js"></script>
+  </body>
 </html>
