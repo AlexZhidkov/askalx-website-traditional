@@ -18,6 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
   let conversation = null;
   let isVoiceMode = false;
   let isCurrentSessionVoice = false;
+  let listeningMessageEl = null;
 
   // Helper to add a message to the UI
   function appendMessage(text, role) {
@@ -40,6 +41,15 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       chatHistory.scrollTop = 0;
     }, 50);
+
+    return msgWrapper;
+  }
+
+  function removeListeningPlaceholder() {
+    if (listeningMessageEl && listeningMessageEl.isConnected) {
+      listeningMessageEl.remove();
+    }
+    listeningMessageEl = null;
   }
 
   function showThinkingIndicator() {
@@ -175,6 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
   function resetMicUI() {
     micBtn.classList.remove("active");
     micBtn.classList.remove("speaking");
+    removeListeningPlaceholder();
   }
 
   // Handle Mic Button Click (Toggle Voice Mode)
@@ -194,7 +205,8 @@ document.addEventListener("DOMContentLoaded", () => {
       micBtn.classList.add("active");
 
       // Add a visual indicator to the user that they are in a voice session, and prompt for mic
-      appendMessage("Listening...", "user"); // Optional: placeholder for voice input UX
+      removeListeningPlaceholder();
+      listeningMessageEl = appendMessage("Listening...", "user"); // Optional: placeholder for voice input UX
       if (window.umami) umami.track("Chat - Voice Started");
 
       const conv = await getOrInitConversation(true);
