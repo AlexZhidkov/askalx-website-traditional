@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <rect width="100" height="100" fill="white"/>
+  
+  <style>
+    .liquid-font {
+      /* This is the crucial part: you need the font installed */
+      font-family: 'LazenbyCompLiquid', sans-serif;
+      font-weight: bold;
+      fill: black;
+      text-anchor: middle;
+      dominant-baseline: central;
+    }
+  </style>
+
+  <text x="50" y="30" font-size="38" class="liquid-font">ASK</text>
+  
+  <text x="50" y="70" font-size="38" class="liquid-font">ALX</text>
+</svg>
