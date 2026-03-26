@@ -241,9 +241,8 @@ document.addEventListener("DOMContentLoaded", () => {
         newIndex = Math.floor(Math.random() * testimonials.length);
       }
       
-      if (currentIndex !== -1) {
-        testimonials[currentIndex].classList.remove('active');
-      }
+      // Clear all active classes (especially important for the HTML fallback on first run)
+      testimonials.forEach(t => t.classList.remove('active'));
       
       // Force a reflow so the animation restarts
       void testimonials[newIndex].offsetWidth;
