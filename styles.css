@@ -445,13 +445,16 @@ h2 {
   opacity: 0.8;
 }
 
+.testimonial-wrapper {
+  cursor: pointer;
+  user-select: none;
+}
+
 .testimonial-grid {
   display: grid;
   gap: 1.5rem;
   grid-template-columns: 1fr;
   margin-top: 2rem;
-  cursor: pointer;
-  user-select: none;
 }
 
 .testimonial-card {

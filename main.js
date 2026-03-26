@@ -228,7 +228,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Testimonial interactive logic
-  const testimonialContainer = document.querySelector('.testimonial-grid');
+  const testimonialContainer = document.getElementById('testimonial-container');
   if (testimonialContainer) {
     const testimonials = Array.from(testimonialContainer.querySelectorAll('.testimonial-card'));
     let currentIndex = -1;
