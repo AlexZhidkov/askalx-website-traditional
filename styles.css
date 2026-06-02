@@ -384,6 +384,11 @@ a[href^="https://t.me/"]:hover .button-icon {
   /* Telegram Blue */
 }
 
+a[href^="https://www.linkedin.com/"]:hover .button-icon {
+  color: #0a66c2;
+  /* LinkedIn Blue */
+}
+
 a[href^="https://askalx.com.au"]:hover .button-icon {
   color: #ff9f0a;
   /* Orange for More/Help */
